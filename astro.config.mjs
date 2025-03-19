@@ -6,21 +6,23 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
+			title: 'FTC-DOCS',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/isanchezv07/FTC-DOCS',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Instalación',
 					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Android Studio', slug: 'guides/installation'},
+						{ label: 'Lógica', slug: 'guides/logica'}
 					],
 				},
 				{
 					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					items: [
+						{ label: 'Android Studio', slug: 'guides/installation' },
+					],
 				},
 			],
 		}),
