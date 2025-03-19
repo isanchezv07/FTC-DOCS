@@ -19,13 +19,13 @@ export default defineConfig({
 						{ label: 'Declarar', slug: 'guides/declarar'},
 						{ label: 'OpModes', slug: 'guides/opmodes'},
 					],
-				},
+				}/*,
 				{
 					label: 'Reference',
 					items: [
 						{ label: 'Android Studio', slug: 'guides/installation' },
 					],
-				},
+				},*/
 			],
 		}),
 	],
