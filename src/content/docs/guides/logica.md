@@ -52,6 +52,27 @@ int multiplicacion = 4 * 2; // Como resultado 8
 double division = 8 / 2; // Como resultado 4
 ```
 
+#### 1.4 Condicionales
+Las condiciones permiten que el robot haga una cosa o otra dependiendo de la situación.
+
+**Condicional if:**
+```java
+if (distancia < 10) {
+    // El robot hace algo si la distancia es menor que 10
+} else {
+    // El robot hace algo diferente si la distancia no es menor que 10
+}
+```
+#### 1.5 Ciclos(Loops)
+Un bucle o loop repite una acción varias veces. El bucle más común es el while, que sigue ejecutándose mientras se cumpla una condición.
+
+**Loop:**
+```java
+while (motorIzquierdo.isBusy()) {
+    // El robot sigue moviendo el motor mientras está ocupado
+}
+```
+
 ## 2. ¿Como se usan estos conceptos en FTC?
 
 Ahora que entiendes los conceptos básicos de Java, veamos cómo se aplican en FTC para programar un robot. En FTC, usamos Java para controlar los motores, los sensores y otros componentes del robot.
@@ -92,6 +113,14 @@ System.out.println("Distancia al objeto: " + distancia);
 Este programa hace dos cosas:
 - 1.Mueve el motor a la máxima velocidad.
 - 2.Lee la distancia desde el sensor de distancia y la muestra en la consola.
+
+### 3.1  Métodos Importantes
+**telemetry.addData():** Este método se usa para enviar datos a la pantalla del robot para ver lo que está haciendo.
+
+```java
+telemetry.addData("Motor Izquierdo", motorIzquierdo.getPower());
+telemetry.update();
+```
 
 ## 4. ¿Qué sigue?
 
