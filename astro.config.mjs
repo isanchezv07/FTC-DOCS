@@ -16,6 +16,7 @@ export default defineConfig({
 					items: [
 						{ label: 'Android Studio', slug: 'guides/installation'},
 						{ label: 'Lógica', slug: 'guides/logica'},
+						{ label: 'Partes y nombres', slug: 'guides/partes'},
 						{ label: 'Declarar', slug: 'guides/declarar'},
 						{ label: 'OpModes', slug: 'guides/opmodes'},
 					],

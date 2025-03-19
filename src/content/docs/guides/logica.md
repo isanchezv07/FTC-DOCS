@@ -15,6 +15,8 @@ Si nunca has programado antes, no te preocupes. En esta guía, te llevaré a tra
 
 Java es un lenguaje de programación que le dice a la computadora cómo debe ejecutar ciertas tareas. Es como un conjunto de instrucciones que el robot sigue para realizar una acción, como mover un motor o leer un sensor.
 
+⚠︎ En Java, el punto y coma (;) se utiliza para indicar el final de una instrucción. Esto le permite al compilador saber dónde termina cada comando, similar a cómo se usa un punto para finalizar una oración en lenguaje natural. ⚠︎
+
 ---
 
 #### 1.2 Variables y tipos de datos
