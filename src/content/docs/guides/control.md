@@ -72,3 +72,70 @@ Pronto aprenderás a combinar estos sistemas para crear rutinas autónomas avanz
 :::tip[¿Y si quiero que mi robot haga trucos especiales?]
 Con tiempo y paciencia, podrás programar tu robot para hacer movimientos complejos, seguir trayectorias curvas y hasta esquivar objetos. ¡El límite es tu creatividad!
 :::
+
+## RETO
+Tu robot debe seguir una línea negra en el piso para llegar a la meta.
+
+- ✅ El robot usará dos motores para moverse.
+- ✅ Un sensor de color detectará si está sobre la línea (negra) o fuera de ella.
+- ✅ Si el sensor detecta negro, el robot sigue avanzando.
+- ✅ Si el sensor detecta blanco, el robot debe girar ligeramente para volver a la línea.
+
+**Materiales Necesarios**
+- 2 Motores (para las ruedas izquierda y derecha)
+- 1 Sensor de color
+
+Pseudocódigo Explicado
+- 1.Iniciar el robot.
+- 2.Si el sensor detecta negro, el robot avanza recto.
+- 3.Si el sensor detecta blanco, el robot gira ligeramente hacia la izquierda o derecha para corregir su trayectoria.
+- 4.El robot repite este ciclo hasta llegar a la meta.
+
+:::tip
+- Usa setPower() para ajustar la velocidad de cada motor:
+- 0.5 = Velocidad media (ideal para avanzar recto con control).
+- 0.3 = Velocidad más baja (para giros suaves o correcciones de trayectoria).
+- Si los valores de rojo, verde y azul son menores a 10, el sensor está detectando la línea negra.
+:::
+
+**RESPUESTA:**
+```java
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.hardware.ColorSensor;
+import com.qualcomm.robotcore.hardware.DcMotor;
+
+@TeleOp(name="Seguidor de Línea", group="Pruebas")
+public class SeguidorDeLinea extends LinearOpMode {
+    
+    private DcMotor motorIzq, motorDer;
+    private ColorSensor sensorColor;
+
+    @Override
+    public void runOpMode() {
+        motorIzq = hardwareMap.get(DcMotor.class, "motorIzq");
+        motorDer = hardwareMap.get(DcMotor.class, "motorDer");
+        sensorColor = hardwareMap.get(ColorSensor.class, "sensorColor");
+
+        waitForStart();
+
+        while (opModeIsActive()) {
+            // Si detecta negro (línea)
+            if (sensorColor.red() < 10 && sensorColor.green() < 10 && sensorColor.blue() < 10) {
+                motorIzq.setPower(0.5);
+                motorDer.setPower(0.5); // Avanza recto
+            } 
+            // Si detecta blanco (fuera de la línea)
+            else {
+                motorIzq.setPower(0.3); // Gira suavemente
+                motorDer.setPower(0.0);
+            }
+
+            // Mostrar información en la Driver Station
+            telemetry.addData("Color Rojo", sensorColor.red());
+            telemetry.addData("Color Verde", sensorColor.green());
+            telemetry.addData("Color Azul", sensorColor.blue());
+            telemetry.update();
+        }
+    }
+}
+```

@@ -16,7 +16,18 @@ Cada explicación se acompaña de ejemplos detallados para principiantes.
 
 ---
 
-## 1. ¿Qué es la declaración de componentes?
+## 1. Importar las Librerías Necesarias
+Las librerías en Java son conjuntos de herramientas que te permiten realizar ciertas tareas sin tener que escribir todo el código desde cero. En FTC, las librerías incluyen funciones y clases que facilitan el control de motores, sensores y otros componentes del robot.
+
+### Librerías clave en FTC
+- **import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;** → Permite crear un programa que se ejecute de forma lineal (paso a paso). Es la base para que el robot entienda las instrucciones.
+- **import com.qualcomm.robotcore.hardware.DcMotor;** → Permite controlar motores de corriente directa (DC).
+- **import com.qualcomm.robotcore.hardware.ColorSensor;** → Permite obtener datos del sensor de color.
+
+:::tip[Tip: Estas librerías son fundamentales para que el robot pueda interpretar tu código]
+:::
+
+## 2. ¿Qué es la declaración de componentes?
 
 **Declarar un componente** significa decirle a tu robot que existe un dispositivo físico (motor, sensor, etc.) y que podrá controlarlo mediante el código.
 
@@ -24,7 +35,7 @@ Cuando declaras un componente, le estás dando un **nombre en el código** que d
 
 ---
 
-## 2. Cómo se declaran los componentes
+## 3. Cómo se declaran los componentes
 
 Todos los componentes se declaran usando el siguiente formato:
 
@@ -32,7 +43,7 @@ Todos los componentes se declaran usando el siguiente formato:
 <tipo de componente> <nombre en el código> = hardwareMap.get(<tipo de componente>.class, "<nombre en la Driver Station>");
 ```
 
-### 2.1 Declaración de Motores 
+### 3.1 Declaración de Motores 
 Los motores DC se utilizan para mover las ruedas del robot u otros mecanismos como elevadores o sistemas de recolección.
 
 **Ejemplo de declaración de un motor:**
@@ -53,7 +64,7 @@ motorIzquierdo.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);  // Se det
 - setMode(): Controla cómo se moverá el motor (por ejemplo, usando encoders para mayor precisión).
 - setZeroPowerBehavior(): Define el comportamiento del motor cuando no tiene potencia (BRAKE para detenerlo de golpe o FLOAT para que siga girando libremente).
 
-## 3. Declaración de Servos
+## 4. Declaración de Servos
 Los servos se utilizan para mover brazos, ganchos, pinzas o cualquier otro mecanismo que requiera movimientos precisos en ángulos específicos.
 
 **Ejemplo de declaración de un servo:**
@@ -68,9 +79,9 @@ brazo.setPosition(0.5); // Mueve el servo a la posición intermedia (0 = mínimo
 ```
 - setPosition(): Controla la posición del servo. El valor va de 0 (mínimo) a 1 (máximo).
 
-## 4. Declaración de Sensores
+## 5. Declaración de Sensores
 
-### 4.1 Sensor de distancia
+### 5.1 Sensor de distancia
 Los sensores de distancia permiten medir la proximidad de objetos.
 
 **Declaración del sensor de distancia:**
@@ -81,7 +92,7 @@ DistanceSensor sensorDistancia = hardwareMap.get(DistanceSensor.class, "sensorDi
 double distancia = sensorDistancia.getDistance(DistanceUnit.CM); // Obtiene la distancia en centímetros
 ```
 
-### 4.2 Sensor de color
+### 5.2 Sensor de color
 Los sensores de color detectan colores específicos en el entorno.
 **Declaración del sensor de color:**
 ```java
@@ -93,7 +104,7 @@ int verde = sensorColor.green();
 int azul = sensorColor.blue();
 ```
 
-### 4.3 Sensor de toque
+### 5.3 Sensor de toque
 Los sensores de toque detectan cuando se presiona un botón o un interruptor.
 **Declaración del sensor de toque:**
 ```java
@@ -107,14 +118,14 @@ if (sensorToque.isPressed()) {
 }
 ```
 
-## 5. Declaración de Cámaras
+## 6. Declaración de Cámaras
 Las cámaras se utilizan para visión computarizada, detección de objetos o seguimiento de balizas.
 **Declaración de la cámara:**
 ```java
 WebcamName webcam = hardwareMap.get(WebcamName.class, "Webcam 1");
 ```
 
-## 6. Recomendaciones Finales
+## 7. Recomendaciones Finales
 
 - ✅ Usa nombres claros y específicos para tus componentes (por ejemplo, motorIzquierdo, sensorColor, brazo).
 - ✅ Asegúrate de que el nombre del componente en el código coincida exactamente con el nombre asignado en la configuración de la Driver Station.
