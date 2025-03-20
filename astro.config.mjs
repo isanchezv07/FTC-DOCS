@@ -19,6 +19,7 @@ export default defineConfig({
 						{ label: 'Partes y nombres', slug: 'guides/partes'},
 						{ label: 'Declarar', slug: 'guides/declarar'},
 						{ label: 'OpModes', slug: 'guides/opmodes'},
+						{ label: 'Control Avanzado', slug: 'guides/control'},
 					],
 				}/*,
 				{

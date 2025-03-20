@@ -133,9 +133,11 @@ Crear un programa que controle un robot con un motor, un servo, un sensor de dis
 - 3.	Debe utilizar el sensor de color para mostrar los valores RGB en la pantalla de telemetría.
 - 4.	Usa nombres coherentes para los componentes en el código y la configuración de la Driver Station.
 
-**Pistas:**
+
+:::tip
 - Usa los métodos de los sensores y componentes para obtener las lecturas y realizar acciones.
 - Usa telemetry.addData() para mostrar información en la Driver Station.
+:::
 
 **Respuesta:**
 ```java
