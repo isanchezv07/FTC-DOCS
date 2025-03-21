@@ -15,17 +15,28 @@ export default defineConfig({
 					label: 'Instalación',
 					items: [
 						{ label: 'Android Studio', slug: 'guides/installation'},
-						{ label: 'Lógica', slug: 'guides/logica'},
+					],
+				},
+				{
+					label: 'Introducbión',
+					items: [
 						{ label: 'Partes y nombres', slug: 'guides/partes'},
+						{ label: 'Lógica', slug: 'guides/logica'}
+					],
+				},
+				{
+					label: 'Programación',
+					items: [
 						{ label: 'Declarar', slug: 'guides/declarar'},
 						{ label: 'OpModes', slug: 'guides/opmodes'},
 						{ label: 'Control Avanzado', slug: 'guides/control'},
 					],
 				}/*,
+				//TODO: ********** PARTE DE RETOS **********
 				{
-					label: 'Reference',
+					label: 'RETOS',
 					items: [
-						{ label: 'Android Studio', slug: 'guides/installation' },
+						{ label: 'Android Studio', slug: 'retos/example'},
 					],
 				},*/
 			],
