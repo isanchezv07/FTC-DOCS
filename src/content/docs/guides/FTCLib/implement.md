@@ -1,5 +1,5 @@
 ---
-title: Guía Completa
+title: Guía Rápida
 description: Implementación de FTCLib en un Proyecto FTC
 ---
 
