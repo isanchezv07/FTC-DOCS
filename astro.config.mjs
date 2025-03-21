@@ -30,6 +30,20 @@ export default defineConfig({
 						{ label: 'Declarar', slug: 'guides/declarar'},
 						{ label: 'OpModes', slug: 'guides/opmodes'},
 						{ label: 'Control Avanzado', slug: 'guides/control'},
+						{
+							label: 'FTCLib',
+							items: [
+								{ label: 'Instalación', slug: 'guides/ftclib/installation'},
+								{ label: 'Implementación', slug: 'guides/ftclib/implement'},
+							],
+						},
+					],
+					
+				},
+				{
+					label: 'Importante',
+					items: [
+						{ label: 'Recursos de FIRST', slug: 'importante/links'}
 					],
 				}/*,
 				//TODO: ********** PARTE DE RETOS **********
