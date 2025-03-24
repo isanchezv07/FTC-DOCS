@@ -7,7 +7,6 @@ description: Implementación de FTCLib en un Proyecto FTC
 FTCLib es una biblioteca para FTC (FIRST Tech Challenge) que facilita la programación de robots. En esta guía aprenderás a:
 - Configurar FTCLib en Android Studio.
 - Implementar control teleoperado con GamepadEx.
-- Crear rutas autónomas precisas con TrajectorySequence.
 
 
 ## 1.Uso de GamepadEx para Teleoperado
@@ -121,4 +120,3 @@ gamepad.getGamepadButton(GamepadKeys.Button.Y).whenPressed(
 ### ¿Qué hace esto?
 - **getGamepadButton**(GamepadKeys.Button.Y) detecta cuándo se presiona el botón Y del gamepad.
 - **whenPressed()** ejecuta el comando de mover el elevador a su máxima potencia cuando presionas el botón Y.
-
