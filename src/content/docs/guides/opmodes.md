@@ -16,41 +16,61 @@ Un **OpMode** es el programa que controla tu robot. Hay dos tipos principales:
 
 ---
 
-## 2. Estructura de un `LinearOpMode` (Modo Autónomo)
+## 2. Estructura de un `OpMode` (Modo Autónomo)
 
-El `LinearOpMode` es ideal para ejecutar el código paso a paso. Su estructura básica es la siguiente:
+El `OpMode` es ideal para ejecutar el código paso a paso. Su estructura básica es la siguiente:
 
 ### Código de ejemplo
 
 ```java
-/*
-    @TeleOp es para decir que estas programando un TeleOp
-    en el caso de querer hacer un autonomo, seria @Autonomous
-*/
-// 1. Este nombre aparecerá en la Driver Station
-@TeleOp(name="TeleOpSimple", group="Pruebas")
+// Paquete donde se guarda el código del robot
+package org.firstinspires.ftc.teamcode;
 
-// 2. Definición de la clase principal del programa y el tipo de OpMode
+// Importamos las herramientas necesarias para programar el robot
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor; // Importamos la clase para los motores
+
+// Definimos que este programa es un TeleOp
+@TeleOp(name="TeleOpSimple", group="Pruebas")
+// Creamos la clase principal del OpMode
 public class TeleOpSimple extends OpMode {
 
-    // 3. Declaración de los motores
+    // Declaramos los motores (pero aún no los inicializamos)
     private DcMotor motorIzquierdo;
     private DcMotor motorDerecho;
 
-    // 4. Método que se ejecuta una sola vez al iniciar el programa
+    // Método init(), se ejecuta una vez al iniciar el programa
     @Override
     public void init() {
-        // Vincular el hardware del robot con el código
-        motorIzquierdo = hardwareMap.get(DcMotor.class, "motorIzquierdo");
-        motorDerecho = hardwareMap.get(DcMotor.class, "motorDerecho");
+        // Aquí es donde INICIALIZAMOS los motores usando el hardware del robot
+        motorIzquierdo = hardwareMap.get(DcMotor.class, "motorIzq");
+        motorDerecho = hardwareMap.get(DcMotor.class, "motorDer");
+
+        // Indicamos que un motor gira en sentido contrario para que el robot avance recto
+        motorIzquierdo.setDirection(DcMotor.Direction.REVERSE);
+        motorDerecho.setDirection(DcMotor.Direction.FORWARD);
+
+        // Mostramos en la Driver Station que todo está listo
+        telemetry.addData("Estado", "Motores inicializados");
+        telemetry.update();
     }
 
-    // 5. Método que se ejecuta continuamente mientras el programa esté activo
+    // Método loop(), se ejecuta repetidamente mientras el programa está corriendo
     @Override
     public void loop() {
-        double power = -gamepad1.left_stick_y;
-        motorIzquierdo.setPower(power);
-        motorDerecho.setPower(power);
+        // Controlamos los motores con los joysticks del gamepad
+        double potenciaIzquierda = -gamepad1.left_stick_y; // Joystick izquierdo controla motor izquierdo
+        double potenciaDerecha = -gamepad1.right_stick_y; // Joystick derecho controla motor derecho
+
+        // Aplicamos la potencia a los motores
+        motorIzquierdo.setPower(potenciaIzquierda);
+        motorDerecho.setPower(potenciaDerecha);
+
+        // Mostramos en la Driver Station la potencia de los motores
+        telemetry.addData("Motor Izquierdo", potenciaIzquierda);
+        telemetry.addData("Motor Derecho", potenciaDerecha);
+        telemetry.update();
     }
 }
 ```
@@ -133,3 +153,42 @@ public class AutonomoSimple extends LinearOpMode {
 - Si vas a programar un modo autónomo, utiliza LinearOpMode.
 - Si vas a programar un modo TeleOp (control manual), utiliza OpMode.
 - Mantén el código limpio y organizado usando nombres claros para tus motores y servos.
+
+## RETO: Mostrar Datos con Telemetría
+
+**Objetivo:** Mostrar información en la pantalla del driver station sobre el estado del robot y los valores de los joysticks.
+
+**Descripción:** En este reto, aprenderás a usar telemetría para mostrar datos en la Driver Station. Esto es útil para ver información en tiempo real sobre el estado de tu robot mientras lo estás controlando.
+
+:::tip
+Recuerda usar **telemetry.update()** para actualizar los datos en la pantalla del driver station.
+:::
+
+**Respuesta:**
+```java
+
+@TeleOp(name="Telemetria", group="Ejemplo")
+public class Telemetria extends OpMode {
+
+    @Override
+    public void init() {
+        // Este mensaje aparecerá cuando el OpMode se inicie
+        telemetry.addData("Estado", "Listo para empezar");
+        telemetry.update(); // Actualiza la información en la Driver Station
+    }
+
+    @Override
+    public void loop() {
+        // Se obtienen los valores de los joysticks
+        double joystickIzq = gamepad1.left_stick_y;
+        double joystickDer = gamepad1.right_stick_y;
+
+        // Mostramos los valores de los joysticks en la pantalla de la Driver Station
+        telemetry.addData("Joystick Izq", joystickIzq);
+        telemetry.addData("Joystick Der", joystickDer);
+
+        // Actualizamos la pantalla para que muestre la información más reciente
+        telemetry.update();
+    }
+}
+```

@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+//import starlightDocSearch from '@astrojs/starlight-docsearch';
 
 // https://astro.build/config
 export default defineConfig({
@@ -53,7 +54,11 @@ export default defineConfig({
 						{ label: 'Android Studio', slug: 'retos/example'},
 					],
 				},*/
-			],
+			],/*plugins: [
+				starlightDocSearch({
+				  clientOptionsModule: './src/config/docsearch.ts',
+				}),
+			  ],*/
 		}),
 	],
 });

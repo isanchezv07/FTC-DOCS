@@ -7,10 +7,12 @@ description: Guía completa para declarar y configurar componentes electrónicos
 
 Esta guía te enseñará cómo declarar y configurar los elementos esenciales de tu robot FTC, incluyendo:
 
+
+✅ Gamepads y Joysticks  
 ✅ Motores DC  
 ✅ Servos  
 ✅ Sensores (de distancia, color, toque, etc.)  
-✅ Cámaras (como el sistema de visión del Control Hub o cámaras externas)  
+✅ Cámaras (como el sistema de visión del Control Hub o cámaras externas)
 
 Cada explicación se acompaña de ejemplos detallados para principiantes.
 
@@ -64,7 +66,38 @@ motorIzquierdo.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);  // Se det
 - setMode(): Controla cómo se moverá el motor (por ejemplo, usando encoders para mayor precisión).
 - setZeroPowerBehavior(): Define el comportamiento del motor cuando no tiene potencia (BRAKE para detenerlo de golpe o FLOAT para que siga girando libremente).
 
-## 4. Declaración de Servos
+## 4. Declaración de Gamepads
+Los gamepads permiten controlar el robot mediante botones y joysticks, que son esenciales para el control en tiempo real durante el modo TeleOp.
+
+Para declarar los gamepads, simplemente se accede a los dispositivos de entrada, como se hace con otros componentes.
+
+**Ejemplo de declaración de un gamepad:**
+```java
+Gamepad gamepad1 = gamepad1;
+Gamepad gamepad2 = gamepad2;
+```
+En el código, gamepad1 y gamepad2 son los gamepads predeterminados que corresponden a los dos controladores conectados al robot. Si usas GamepadEx, la declaración se vería así:
+```java
+GamepadEx gamepadEx1 = new GamepadEx(gamepad1);  // Gamepad 1 con funcionalidad extendida
+GamepadEx gamepadEx2 = new GamepadEx(gamepad2);  // Gamepad 2 con funcionalidad extendida
+```
+
+### 4.1 Leer los Datos de los Joysticks
+Cada gamepad tiene dos joysticks, uno para cada mano, que permiten controlar los movimientos del robot (como moverlo hacia adelante, atrás o girar).
+
+Los joysticks se leen usando sus ejes, que van de -1 a 1. En FTC, puedes acceder a los valores de los ejes de la siguiente forma:
+
+**Ejemplo para leer los valores de los joysticks con Gamepad:**
+```java
+double ejeIzquierdoX = gamepad1.left_stick_x;  // Movimiento horizontal del joystick izquierdo
+double ejeIzquierdoY = gamepad1.left_stick_y;  // Movimiento vertical del joystick izquierdo
+
+double ejeDerechoX = gamepad1.right_stick_x;  // Movimiento horizontal del joystick derecho
+double ejeDerechoY = gamepad1.right_stick_y;  // Movimiento vertical del joystick derecho
+```
+
+
+## 5. Declaración de Servos
 Los servos se utilizan para mover brazos, ganchos, pinzas o cualquier otro mecanismo que requiera movimientos precisos en ángulos específicos.
 
 **Ejemplo de declaración de un servo:**
@@ -79,9 +112,9 @@ brazo.setPosition(0.5); // Mueve el servo a la posición intermedia (0 = mínimo
 ```
 - setPosition(): Controla la posición del servo. El valor va de 0 (mínimo) a 1 (máximo).
 
-## 5. Declaración de Sensores
+## 6. Declaración de Sensores
 
-### 5.1 Sensor de distancia
+### 6.1 Sensor de distancia
 Los sensores de distancia permiten medir la proximidad de objetos.
 
 **Declaración del sensor de distancia:**
@@ -92,7 +125,7 @@ DistanceSensor sensorDistancia = hardwareMap.get(DistanceSensor.class, "sensorDi
 double distancia = sensorDistancia.getDistance(DistanceUnit.CM); // Obtiene la distancia en centímetros
 ```
 
-### 5.2 Sensor de color
+### 6.2 Sensor de color
 Los sensores de color detectan colores específicos en el entorno.
 **Declaración del sensor de color:**
 ```java
@@ -104,7 +137,7 @@ int verde = sensorColor.green();
 int azul = sensorColor.blue();
 ```
 
-### 5.3 Sensor de toque
+### 6.3 Sensor de toque
 Los sensores de toque detectan cuando se presiona un botón o un interruptor.
 **Declaración del sensor de toque:**
 ```java
@@ -118,20 +151,20 @@ if (sensorToque.isPressed()) {
 }
 ```
 
-## 6. Declaración de Cámaras
+## 7. Declaración de Cámaras
 Las cámaras se utilizan para visión computarizada, detección de objetos o seguimiento de balizas.
 **Declaración de la cámara:**
 ```java
 WebcamName webcam = hardwareMap.get(WebcamName.class, "Webcam 1");
 ```
 
-## 7. Recomendaciones Finales
+## 8. Recomendaciones Finales
 
 - ✅ Usa nombres claros y específicos para tus componentes (por ejemplo, motorIzquierdo, sensorColor, brazo).
 - ✅ Asegúrate de que el nombre del componente en el código coincida exactamente con el nombre asignado en la configuración de la Driver Station.
 - ✅ Siempre inicializa los motores y servos en el método init() o runOpMode().
 
-## Reto para declarar Componentes
+## RETO: Declarar Componentes
 **Objetivo:**
 Crear un programa que controle un robot con un motor, un servo, un sensor de distancia y un sensor de color. El robot deberá:
 - 1.	Moverse hacia adelante hasta que el sensor de distancia detecte un objeto a menos de 30 cm.

@@ -98,6 +98,10 @@ Pseudocódigo Explicado
 - Si los valores de rojo, verde y azul son menores a 10, el sensor está detectando la línea negra.
 :::
 
+:::caution[Importante]
+Si alguna parte del código no funciona porque falta una librería, tu editor de codigo te avisará con un mensaje. La mayoría de las veces, el problema se soluciona automáticamente al guardar el archivo o actualizar la página.
+:::
+
 **RESPUESTA:**
 ```java
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
