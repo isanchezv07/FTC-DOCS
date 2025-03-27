@@ -19,7 +19,7 @@ export default defineConfig({
 					],
 				},
 				{
-					label: 'Introducbión',
+					label: 'Introdución',
 					items: [
 						{ label: 'Partes y nombres', slug: 'guides/partes'},
 						{ label: 'Lógica', slug: 'guides/logica'}

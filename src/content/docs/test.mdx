@@ -1,0 +1,32 @@
+---
+title: Testeo de componentes
+description: Aprende a probar tus componentes de Astro con Jest y React Testing Library.
+---
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <LinkCard title="Authoring Markdown" href="/guides/authoring-content/" />
+  <LinkCard title="Components" href="/components/using-components/" />
+</CardGrid>
+
+```js {2-3}
+function demo() {
+  // This line (#2) and the next one are highlighted
+  return 'This is line #3 of this snippet';
+}
+```
+
+```js "Individual terms" /Even.*supported/
+// Individual terms can be highlighted, too
+function demo() {
+  return 'Even regular expressions are supported';
+}
+```
+
+```js "return true;" ins="inserted" del="deleted"
+function demo() {
+  console.log('These are inserted and deleted marker types');
+  // The return statement uses the default marker type
+  return true;
+}
+```
