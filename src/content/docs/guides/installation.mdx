@@ -3,6 +3,8 @@ title: Instalación de Android Studio y Configuración del SDK
 description: Guía paso a paso para instalar Android Studio, configurar el SDK y clonar el repositorio.
 ---
 
+import { Steps } from '@astrojs/starlight/components';
+
 Este tutorial te llevará a través de los pasos necesarios para instalar Android Studio, configurar el SDK de Android y clonar el repositorio de FTC para que puedas empezar a programar.
 
 ## 1. Instalación de Android Studio
@@ -85,8 +87,23 @@ Para empezar a trabajar, necesitas clonar el repositorio desde GitHub.
 
 ## 6. Comenzar a Desarrollar
 
-¡Ahora estás listo para comenzar a desarrollar! Puedes empezar a modificar el código, agregar nuevas funcionalidades y probar tu aplicación en el dispositivo o emulador.
+Para programar, los archivos fuente deben estar en la carpeta `teamcode` dentro del repositorio clonado.
 
----
+**Ubicación:**
 
-Este es el proceso básico para instalar Android Studio, configurar el SDK y clonar el repositorio de FTC. Si necesitas más ayuda o detalles, no dudes en preguntar. ¡Buena suerte con tu desarrollo!
+```plaintext
+.../FtcRobotController/TeamCode/src/main/java/org/firstinspires/ftc/teamcode
+```
+
+## 7. Crear un nuevo archivo
+
+<Steps>
+1. Abre Android Studio y ve al Explorador de Proyectos.
+2. Navega a `TeamCode/src/main/java/org/firstinspires/ftc/teamcode`.
+3. Haz clic derecho en la carpeta `teamcode`.
+4. Selecciona **New > Java Class**.
+5. Escribe el nombre de tu nueva clase y presiona Enter.
+</Steps>
+
+
+Ahora puedes comenzar a programar tu robot utilizando esta nueva clase. ¡Feliz codificación! 🚀
