@@ -8,9 +8,9 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'FTC-DOCS',
-			social: {
-				github: 'https://github.com/isanchezv07/FTC-DOCS',
-			},
+			social: [
+				{ icon: 'github', label: 'GitHub', href: 'https://github.com/isanchezv07/FTC-DOCS' }
+			],
 			sidebar: [
 				{
 					label: 'Instalación',
@@ -32,12 +32,18 @@ export default defineConfig({
 						{ label: 'OpModes', slug: 'guides/opmodes'},
 						{ label: 'Control Avanzado', slug: 'guides/control'},
 						{
+							label: 'OnBotJava',
+							items: [
+								{ label: 'Introduction', slug: 'guides/onbot/example'},
+							],
+						}
+						/*{
 							label: 'FTCLib',
 							items: [
 								{ label: 'Instalación', slug: 'guides/ftclib/installation'},
 								{ label: 'Implementación', slug: 'guides/ftclib/implement'},
 							],
-						},
+						},*/
 					],
 					
 				},

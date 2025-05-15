@@ -13,7 +13,7 @@ Soy Isac, un miembro del equipo [**CANQueens 2566**](https://ftc-events.firstins
 
 Disfruto mucho **compartir conocimientos** y ver cómo otros descubren el poder de la tecnología. Para mí, enseñar es un proceso de colaboración, donde todos aprendemos algo nuevo. Mi objetivo es ayudarte a **encontrar tu propio camino en el mundo de la programación** y ayudarte a crecer como programador/a y como persona.
 
-## ✨ Retroalimentación ✨
+##  Retroalimentación ✨
 
 - [¡Me ayudarías muchísimo si me puedes dar retroalimentación sobre la guía!](https://forms.gle/axXPkAopbyPBccjDA)
 ---

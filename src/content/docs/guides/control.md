@@ -99,14 +99,11 @@ Pseudocódigo Explicado
 :::
 
 :::caution[Importante]
-Si alguna parte del código no funciona porque falta una librería, tu editor de codigo te avisará con un mensaje. La mayoría de las veces, el problema se soluciona automáticamente al guardar el archivo o actualizar la página.
+Si alguna parte del código no funciona porque falta una librería, tu editor de código te avisará con un mensaje. La mayoría de las veces, el problema se soluciona automáticamente al guardar el archivo o actualizar la página.
 :::
 
 **RESPUESTA:**
 ```java
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.hardware.ColorSensor;
-import com.qualcomm.robotcore.hardware.DcMotor;
 
 @TeleOp(name="Seguidor de Línea", group="Pruebas")
 public class SeguidorDeLinea extends LinearOpMode {
